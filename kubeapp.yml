@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: addressbook
-        image: tonygeorgethomas/addressbook:47
+        image: tonygeorgethomas/addressbook:latest
         ports:
         - containerPort: 8080
 ---
