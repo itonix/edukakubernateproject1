@@ -28,7 +28,7 @@ kind: Service
 metadata:
   name: my-service
 spec:
-  type: Nodeport
+  type: NodePort
   selector:
     app: addressbook  
   ports:
