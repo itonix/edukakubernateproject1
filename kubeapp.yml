@@ -1,0 +1,37 @@
+#Pulling App from dockerhub and deploying App in kubernates using kube deployment object
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: addressbook
+  labels:
+    app: addressbook
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: addressbook
+  template:
+    metadata:
+      labels:
+        app: addressbook
+    spec:
+      containers:
+      - name: addressbook
+        image: tonygeorgethomas/addressbook:latest
+        ports:
+        - containerPort: 8080
+---
+#defining service of type nodeport for deploymet 
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: nodeport
+  selector:
+    app: addressbook  
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
