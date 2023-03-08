@@ -19,8 +19,6 @@ spec:
       containers:
       - name: addressbook
         image: tonygeorgethomas/addressbook:latest
-        ports:
-        - containerPort: 8080
 ---
 #defining service of type nodeport for deploymet 
 apiVersion: v1
